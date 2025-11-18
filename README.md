@@ -31,3 +31,24 @@ La idea es simple: tomar datos crudos (con columnas desordenadas, tipos incorrec
 git clone https://github.com/programathor10/csv-cleaner.git
 cd csv-cleaner
 pip install -r requirements.txt
+
+---
+## 🧹 Ejemplo rápido (antes / después)
+
+Supongamos un CSV con:
+
+- Columnas con espacios y mayúsculas (`" Nombre "`, `"Edad "`).
+- Nulos mezclados.
+- Filas duplicadas.
+- Tipos de datos todos como texto.
+
+Con una configuración:
+
+```python
+config = CleanConfig(
+    columns=["Nombre", "Edad", "Ciudad"],
+    drop_duplicates=True,
+    normalize_column_names=True,
+    drop_empty_cols=True,
+    convert_dtypes=True,
+)
