@@ -31,3 +31,4 @@ La idea es simple: tomar datos crudos (con columnas desordenadas, tipos incorrec
 git clone https://github.com/programathor10/csv-cleaner.git
 cd csv-cleaner
 pip install -r requirements.txt
+
