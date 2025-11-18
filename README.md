@@ -1,24 +1,33 @@
-# CSV Cleaner
+# CSV Cleaner – Pipeline de Limpieza de Datos en Python
 
-Herramienta en Python para procesar archivos CSV y generar una versión limpia, lista para uso empresarial.
+Este proyecto es un **automatizador de limpieza de datos en CSV** construido en Python y Pandas.
 
-## ✨ Funcionalidades
+La idea es simple: tomar datos crudos (con columnas desordenadas, tipos incorrectos, nulos, etc.) y pasarlos por un **pipeline configurable** que devuelve un DataFrame / CSV listo para análisis.
 
-- Carga segura de archivos CSV
-- Eliminación de filas duplicadas
-- Normalización de nombres de columnas a `snake_case`
-- Eliminación de columnas vacías
-- Conversión inteligente de tipos (int, float, datetime cuando es posible)
-- Selección opcional de columnas a incluir
-- CLI simple basada en `argparse`
+## ✨ Características
 
-## 🧱 Requisitos
+- Definición de reglas de limpieza mediante una `CleanConfig` (dataclass).
+- Selección opcional de columnas.
+- Eliminación de filas duplicadas.
+- Normalización de nombres de columnas.
+- Eliminación de columnas vacías.
+- Conversión de tipos (números, fechas) siempre que sea posible.
+- Utilidades reutilizables en `utils.py`.
+- Tests automatizados con `pytest`.
 
-- Python 3.10+
-- `pandas`
-- `pytest` (para tests)
+---
 
-Instalación de dependencias:
+## 🛠 Tecnologías
+
+- Python 3.11+
+- Pandas
+- Pytest
+
+---
+
+## 📦 Instalación
 
 ```bash
+git clone https://github.com/programathor10/csv-cleaner.git
+cd csv-cleaner
 pip install -r requirements.txt
