@@ -1,15 +1,17 @@
 import pandas as pd
 from src.csv_cleaner.cleaner import CleanConfig, clean_dataframe
 
+
 def test_clean_dataframe_basic():
+    # DataFrame de ejemplo (no usamos archivos)
     df = pd.DataFrame({
-        "Nombre ": [" Ana ", "Bruno", "Ana "],
-        "Edad": ["20", "25", "20"],
+        " Nombre ": [" Ana ", "Bruno", "Ana "],
+        "Edad ": ["20", "25", "20"],
         "Ciudad": ["Bs As", "Moreno", "Bs As"],
     })
 
     config = CleanConfig(
-        columns=["Nombre ", "Edad"],
+        columns=[" Nombre ", "Edad ", "Ciudad"],
         drop_duplicates=True,
         normalize_column_names=True,
         drop_empty_cols=True,
@@ -18,9 +20,12 @@ def test_clean_dataframe_basic():
 
     cleaned = clean_dataframe(df, config)
 
-    # sin duplicados
+    # 1) Debería eliminar duplicados
     assert len(cleaned) == 2
-    # columnas renombradas
+
+    # 2) Debería normalizar nombres de columnas
     assert "nombre" in cleaned.columns
-    # edad numérica
+    assert "edad" in cleaned.columns
+
+    # 3) Edad debería ser numérica (int o float)
     assert cleaned["edad"].dtype.kind in ("i", "u", "f")
