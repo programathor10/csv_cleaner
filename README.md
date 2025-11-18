@@ -1,5 +1,7 @@
 # CSV Cleaner – Pipeline de Limpieza de Datos en Python
 
+![CI](https://github.com/programathor10/csv-cleaner/actions/workflows/ci.yml/badge.svg)
+
 Automatizador de limpieza de datos en CSV construido en Python y Pandas.  
 Transforma datos crudos (columnas desordenadas, duplicados, tipos incorrectos) en un CSV listo para análisis mediante un pipeline configurable.
 
