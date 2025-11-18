@@ -1,19 +1,20 @@
 # CSV Cleaner – Pipeline de Limpieza de Datos en Python
 
-Este proyecto es un **automatizador de limpieza de datos en CSV** construido en Python y Pandas.
+Automatizador de limpieza de datos en CSV construido en Python y Pandas.  
+Transforma datos crudos (columnas desordenadas, duplicados, tipos incorrectos) en un CSV listo para análisis mediante un pipeline configurable.
 
-La idea es simple: tomar datos crudos (con columnas desordenadas, tipos incorrectos, nulos, etc.) y pasarlos por un **pipeline configurable** que devuelve un DataFrame / CSV listo para análisis.
+---
 
 ## ✨ Características
 
-- Definición de reglas de limpieza mediante una `CleanConfig` (dataclass).
+- Configuración mediante `CleanConfig` (dataclass).
 - Selección opcional de columnas.
-- Eliminación de filas duplicadas.
+- Eliminación de duplicados.
 - Normalización de nombres de columnas.
-- Eliminación de columnas vacías.
-- Conversión de tipos (números, fechas) siempre que sea posible.
-- Utilidades reutilizables en `utils.py`.
-- Tests automatizados con `pytest`.
+- Limpieza de columnas vacías.
+- Conversión automática de tipos (números/fechas).
+- Funciones auxiliares en `utils.py`.
+- Tests básicos con `pytest`.
 
 ---
 
@@ -32,25 +33,3 @@ git clone https://github.com/programathor10/csv-cleaner.git
 cd csv-cleaner
 pip install -r requirements.txt
 
-
----
-
-## 🧹 Ejemplo rápido (antes / después)
-
-Supongamos un CSV con:
-
-- Columnas con espacios y mayúsculas (`" Nombre "`, `"Edad "`).
-- Nulos mezclados.
-- Filas duplicadas.
-- Tipos de datos todos como texto.
-
-Con una configuración:
-
-```python
-config = CleanConfig(
-    columns=["Nombre", "Edad", "Ciudad"],
-    drop_duplicates=True,
-    normalize_column_names=True,
-    drop_empty_cols=True,
-    convert_dtypes=True,
-)
